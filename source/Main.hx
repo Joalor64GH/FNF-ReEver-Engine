@@ -79,7 +79,7 @@ class Main extends Sprite
 		}
 
 		addChild(new FlxGame(gameWidth, gameHeight, initialState, framerate, framerate, skipSplash, startFullscreen));
-		addChild(new FPS(10, 3, 0xFFFFFF));
+		addChild(new Counter(10, 3, 0xFFFFFF));
 
 		Lib.current.loaderInfo.uncaughtErrorEvents.addEventListener(UncaughtErrorEvent.UNCAUGHT_ERROR, (e:UncaughtErrorEvent) -> {
 			#if desktop

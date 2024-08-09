@@ -1,11 +1,17 @@
 package;
 
+import flixel.FlxCamera;
+import flixel.util.FlxColor;
+import flixel.addons.transition.FlxTransitionSprite.GraphicTransTileDiamond;
+import flixel.addons.transition.TransitionData;
+import flixel.graphics.FlxGraphic;
 import Conductor.BPMChangeEvent;
 import flixel.FlxG;
 import flixel.addons.transition.FlxTransitionableState;
 import flixel.addons.ui.FlxUIState;
 import flixel.math.FlxRect;
 import flixel.util.FlxTimer;
+import flixel.math.FlxPoint;
 
 class MusicBeatState extends FlxUIState
 {
@@ -71,5 +77,20 @@ class MusicBeatState extends FlxUIState
 	public function beatHit():Void
 	{
 		//do literally nothing dumbass
+	}
+
+	inline public static function switchState(nextState:MusicBeatState) {
+		if (!FlxTransitionableState.skipNextTransIn) {
+			var cam:FlxCamera = new FlxCamera();
+			cam.bgColor.alpha = 0;
+			FlxG.cameras.add(cam, false);
+			cam.fade(FlxColor.BLACK, 0.7, false, function() {
+				FlxG.switchState(nextState);
+				FlxTransitionableState.skipNextTransIn = false;
+			});
+		} else {
+			FlxG.switchState(nextState);
+			FlxTransitionableState.skipNextTransIn = false;
+		}
 	}
 }

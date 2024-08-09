@@ -1,10 +1,17 @@
 package;
 
+import flixel.addons.ui.FlxUISubState;
+import flixel.util.FlxColor;
+import flixel.addons.transition.FlxTransitionableState;
 import Conductor.BPMChangeEvent;
 import flixel.FlxG;
 import flixel.FlxSubState;
+import flixel.addons.transition.FlxTransitionSprite.GraphicTransTileDiamond;
+import flixel.addons.transition.TransitionData;
+import flixel.graphics.FlxGraphic;
+import flixel.math.FlxPoint;
 
-class MusicBeatSubstate extends FlxSubState
+class MusicBeatSubstate extends FlxUISubState
 {
 	public function new()
 	{
