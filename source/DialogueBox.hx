@@ -1,7 +1,6 @@
 package;
 
 import flixel.FlxG;
-import flixel.FlxSprite;
 import flixel.addons.text.FlxTypeText;
 import flixel.graphics.frames.FlxAtlasFrames;
 import flixel.group.FlxSpriteGroup;
@@ -14,7 +13,7 @@ using StringTools;
 
 class DialogueBox extends FlxSpriteGroup
 {
-	var box:FlxSprite;
+	var box:FunkinSprite;
 
 	var curCharacter:String = '';
 
@@ -28,11 +27,11 @@ class DialogueBox extends FlxSpriteGroup
 
 	public var finishThing:Void->Void;
 
-	var portraitLeft:FlxSprite;
-	var portraitRight:FlxSprite;
+	var portraitLeft:FunkinSprite;
+	var portraitRight:FunkinSprite;
 
-	var handSelect:FlxSprite;
-	var bgFade:FlxSprite;
+	var handSelect:FunkinSprite;
+	var bgFade:FunkinSprite;
 
 	public function new(talkingRight:Bool = true, ?dialogueList:Array<String>)
 	{
@@ -48,7 +47,8 @@ class DialogueBox extends FlxSpriteGroup
 				FlxG.sound.music.fadeIn(1, 0, 0.8);
 		}
 
-		bgFade = new FlxSprite(-200, -200).makeGraphic(Std.int(FlxG.width * 1.3), Std.int(FlxG.height * 1.3), 0xFFB3DFd8);
+		bgFade = new FunkinSprite(-200, -200);
+		bgFade.makeGraphic(Std.int(FlxG.width * 1.3), Std.int(FlxG.height * 1.3), 0xFFB3DFd8);
 		bgFade.scrollFactor.set();
 		bgFade.alpha = 0;
 		add(bgFade);
@@ -60,7 +60,7 @@ class DialogueBox extends FlxSpriteGroup
 				bgFade.alpha = 0.7;
 		}, 5);
 
-		box = new FlxSprite(-20, 45);
+		box = new FunkinSprite(-20, 45);
 		
 		var hasDialog = false;
 		switch (PlayState.SONG.song.toLowerCase())
@@ -84,7 +84,8 @@ class DialogueBox extends FlxSpriteGroup
 				box.animation.addByPrefix('normalOpen', 'Spirit Textbox spawn', 24, false);
 				box.animation.addByIndices('normal', 'Spirit Textbox spawn', [11], "", 24);
 
-				var face:FlxSprite = new FlxSprite(320, 170).loadGraphic(Paths.image('weeb/spiritFaceForward'));
+				var face:FunkinSprite = new FunkinSprite(320, 170);
+				face.loadGraphic(Paths.image('weeb/spiritFaceForward'));
 				face.setGraphicSize(Std.int(face.width * 6));
 				add(face);
 		}
@@ -94,7 +95,7 @@ class DialogueBox extends FlxSpriteGroup
 		if (!hasDialog)
 			return;
 		
-		portraitLeft = new FlxSprite(-20, 40);
+		portraitLeft = new FunkinSprite(-20, 40);
 		portraitLeft.frames = Paths.getSparrowAtlas('weeb/senpaiPortrait');
 		portraitLeft.animation.addByPrefix('enter', 'Senpai Portrait Enter', 24, false);
 		portraitLeft.setGraphicSize(Std.int(portraitLeft.width * PlayState.daPixelZoom * 0.9));
@@ -103,7 +104,7 @@ class DialogueBox extends FlxSpriteGroup
 		add(portraitLeft);
 		portraitLeft.visible = false;
 
-		portraitRight = new FlxSprite(0, 40);
+		portraitRight = new FunkinSprite(0, 40);
 		portraitRight.frames = Paths.getSparrowAtlas('weeb/bfPortrait');
 		portraitRight.animation.addByPrefix('enter', 'Boyfriend portrait enter', 24, false);
 		portraitRight.setGraphicSize(Std.int(portraitRight.width * PlayState.daPixelZoom * 0.9));
@@ -120,9 +121,8 @@ class DialogueBox extends FlxSpriteGroup
 		box.screenCenter(X);
 		portraitLeft.screenCenter(X);
 
-		handSelect = new FlxSprite(FlxG.width * 0.9, FlxG.height * 0.9).loadGraphic(Paths.image('weeb/pixelUI/hand_textbox'));
+		handSelect = new FunkinSprite(FlxG.width * 0.9, FlxG.height * 0.9, Paths.image('weeb/pixelUI/hand_textbox'));
 		add(handSelect);
-
 
 		if (!talkingRight)
 		{

@@ -1,13 +1,12 @@
 package;
 
-import flixel.FlxSprite;
 import flixel.graphics.frames.FlxAtlasFrames;
 import flixel.math.FlxMath;
 import flixel.util.FlxColor;
 
 using StringTools;
 
-class Note extends FlxSprite
+class Note extends FunkinSprite
 {
 	public var strumTime:Float = 0;
 
@@ -40,7 +39,6 @@ class Note extends FlxSprite
 		isSustainNote = sustainNote;
 
 		x += 50;
-		// MAKE SURE ITS DEFINITELY OFF SCREEN?
 		y -= 2000;
 		this.strumTime = strumTime;
 
@@ -96,7 +94,6 @@ class Note extends FlxSprite
 
 				setGraphicSize(Std.int(width * 0.7));
 				updateHitbox();
-				antialiasing = true;
 		}
 
 		switch (noteData)

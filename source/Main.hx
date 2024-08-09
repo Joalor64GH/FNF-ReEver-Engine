@@ -123,18 +123,6 @@ class Main extends Sprite
 
 			Application.current.window.alert(errMsg, "Error!");
 			Sys.exit(1);
-			#else
-			var errMsg:String = "";
-
-			errMsg += "\nUncaught Error: "
-			+ e.error
-			+ "\nPlease report this error to the GitHub page: https://github.com/khuonghoanghuy/FNF-ReEver-Engine\n\n> Crash Handler written by: sqirra-rng";
-
-			if (FlxG.sound.music != null)
-				FlxG.sound.music.stop();
-			
-			Application.current.window.alert(errMsg, "Error!");
-			openfl.system.System.exit(1);			
 			#end
 		});
 	}

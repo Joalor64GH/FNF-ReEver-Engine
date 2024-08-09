@@ -4,7 +4,6 @@ import Conductor.BPMChangeEvent;
 import Section.SwagSection;
 import Song.SwagSong;
 import flixel.FlxG;
-import flixel.FlxSprite;
 import flixel.addons.display.FlxGridOverlay;
 import flixel.addons.ui.FlxInputText;
 import flixel.addons.ui.FlxUI9SliceSprite;
@@ -50,21 +49,21 @@ class ChartingState extends MusicBeatState
 
 	var bpmTxt:FlxText;
 
-	var strumLine:FlxSprite;
+	var strumLine:FunkinSprite;
 	var curSong:String = 'Dadbattle';
 	var amountSteps:Int = 0;
 	var bullshitUI:FlxGroup;
 
-	var highlight:FlxSprite;
+	var highlight:FunkinSprite;
 
 	var GRID_SIZE:Int = 40;
 
-	var dummyArrow:FlxSprite;
+	var dummyArrow:FunkinSprite;
 
 	var curRenderedNotes:FlxTypedGroup<Note>;
-	var curRenderedSustains:FlxTypedGroup<FlxSprite>;
+	var curRenderedSustains:FlxTypedGroup<FunkinSprite>;
 
-	var gridBG:FlxSprite;
+	var gridBG:FunkinSprite;
 
 	var _song:SwagSong;
 
@@ -102,11 +101,12 @@ class ChartingState extends MusicBeatState
 		leftIcon.setPosition(0, -100);
 		rightIcon.setPosition(gridBG.width / 2, -100);
 
-		var gridBlackLine:FlxSprite = new FlxSprite(gridBG.x + gridBG.width / 2).makeGraphic(2, Std.int(gridBG.height), FlxColor.BLACK);
+		var gridBlackLine:FunkinSprite = new FunkinSprite(gridBG.x + gridBG.width / 2)
+		gridBlackLine.makeGraphic(2, Std.int(gridBG.height), FlxColor.BLACK);
 		add(gridBlackLine);
 
 		curRenderedNotes = new FlxTypedGroup<Note>();
-		curRenderedSustains = new FlxTypedGroup<FlxSprite>();
+		curRenderedSustains = new FlxTypedGroup<FunkinSprite>();
 
 		if (PlayState.SONG != null)
 			_song = PlayState.SONG;
@@ -143,10 +143,12 @@ class ChartingState extends MusicBeatState
 		bpmTxt.scrollFactor.set();
 		add(bpmTxt);
 
-		strumLine = new FlxSprite(0, 50).makeGraphic(Std.int(FlxG.width / 2), 4);
+		strumLine = new FunkinSprite(0, 50)
+		strumLine.makeGraphic(Std.int(FlxG.width / 2), 4);
 		add(strumLine);
 
-		dummyArrow = new FlxSprite().makeGraphic(GRID_SIZE, GRID_SIZE);
+		dummyArrow = new FunkinSprite()
+		dummyArrow.makeGraphic(GRID_SIZE, GRID_SIZE);
 		add(dummyArrow);
 
 		var tabs = [
@@ -867,8 +869,9 @@ class ChartingState extends MusicBeatState
 
 			if (daSus > 0)
 			{
-				var sustainVis:FlxSprite = new FlxSprite(note.x + (GRID_SIZE / 2),
-					note.y + GRID_SIZE).makeGraphic(8, Math.floor(FlxMath.remapToRange(daSus, 0, Conductor.stepCrochet * 16, 0, gridBG.height)));
+				var sustainVis:FunkinSprite = new FunkinSprite(note.x + (GRID_SIZE / 2),
+					note.y + GRID_SIZE);
+				sustainVis.makeGraphic(8, Math.floor(FlxMath.remapToRange(daSus, 0, Conductor.stepCrochet * 16, 0, gridBG.height)));
 				curRenderedSustains.add(sustainVis);
 			}
 		}

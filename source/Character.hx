@@ -1,13 +1,12 @@
 package;
 
 import flixel.FlxG;
-import flixel.FlxSprite;
 import flixel.animation.FlxBaseAnimation;
 import flixel.graphics.frames.FlxAtlasFrames;
 
 using StringTools;
 
-class Character extends FlxSprite
+class Character extends FunkinSprite
 {
 	public var animOffsets:Map<String, Array<Dynamic>>;
 	public var debugMode:Bool = false;
@@ -26,7 +25,6 @@ class Character extends FlxSprite
 		this.isPlayer = isPlayer;
 
 		var tex:FlxAtlasFrames;
-		antialiasing = true;
 
 		switch (curCharacter)
 		{

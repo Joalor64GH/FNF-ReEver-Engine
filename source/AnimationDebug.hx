@@ -2,7 +2,6 @@ package;
 
 import flixel.FlxG;
 import flixel.FlxObject;
-import flixel.FlxSprite;
 import flixel.FlxState;
 import flixel.addons.display.FlxGridOverlay;
 import flixel.group.FlxGroup.FlxTypedGroup;
@@ -35,7 +34,7 @@ class AnimationDebug extends FlxState
 	{
 		FlxG.sound.music.stop();
 
-		var gridBG:FlxSprite = FlxGridOverlay.create(10, 10);
+		var gridBG:FunkinSprite = FlxGridOverlay.create(10, 10);
 		gridBG.scrollFactor.set(0.5, 0.5);
 		add(gridBG);
 

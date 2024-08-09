@@ -2,7 +2,6 @@ package;
 
 import flash.text.TextField;
 import flixel.FlxG;
-import flixel.FlxSprite;
 import flixel.addons.display.FlxGridOverlay;
 import flixel.group.FlxGroup.FlxTypedGroup;
 import flixel.math.FlxMath;
@@ -41,10 +40,6 @@ class FreeplayState extends MusicBeatState
 
 		var isDebug:Bool = false;
 
-		#if debug
-		isDebug = true;
-		#end
-
 		if (StoryMenuState.weekUnlocked[2] || isDebug)
 			addWeek(['Bopeebo', 'Fresh', 'Dadbattle'], 1, ['dad']);
 
@@ -67,7 +62,8 @@ class FreeplayState extends MusicBeatState
 
 		// LOAD CHARACTERS
 
-		var bg:FlxSprite = new FlxSprite().loadGraphic(Paths.image('menuBGBlue'));
+		var bg:FunkinSprite = new FunkinSprite(0, 0, Paths.image('menuBG'));
+		bg.color = 0x1D61DE;
 		add(bg);
 
 		grpSongs = new FlxTypedGroup<Alphabet>();
@@ -97,7 +93,8 @@ class FreeplayState extends MusicBeatState
 		scoreText.setFormat(Paths.font("vcr.ttf"), 32, FlxColor.WHITE, RIGHT);
 		// scoreText.alignment = RIGHT;
 
-		var scoreBG:FlxSprite = new FlxSprite(scoreText.x - 6, 0).makeGraphic(Std.int(FlxG.width * 0.35), 66, 0xFF000000);
+		var scoreBG:FunkinSprite = new FunkinSprite(scoreText.x - 6, 0);
+		scoreBG.makeGraphic(Std.int(FlxG.width * 0.35), 66, 0xFF000000);
 		scoreBG.alpha = 0.6;
 		add(scoreBG);
 

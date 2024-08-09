@@ -1,7 +1,6 @@
 package;
 
 import flixel.FlxG;
-import flixel.FlxSprite;
 import flixel.FlxSubState;
 import flixel.text.FlxText;
 import flixel.util.FlxColor;
@@ -14,7 +13,8 @@ class OutdatedSubState extends MusicBeatState
 	override function create()
 	{
 		super.create();
-		var bg:FlxSprite = new FlxSprite().makeGraphic(FlxG.width, FlxG.height, FlxColor.BLACK);
+		var bg:FunkinSprite = new FunkinSprite();
+		bg.makeGraphic(FlxG.width, FlxG.height, FlxColor.BLACK);
 		add(bg);
 		var ver = "v" + Application.current.meta.get('version');
 		var txt:FlxText = new FlxText(0, 0, FlxG.width,
@@ -29,7 +29,7 @@ class OutdatedSubState extends MusicBeatState
 	{
 		if (controls.ACCEPT)
 		{
-			FlxG.openURL("https://ninja-muffin24.itch.io/funkin");
+			FlxG.openURL("https://github.com/khuonghoanghuy/FNF-ReEver-Engine/releases");
 		}
 		if (controls.BACK)
 		{

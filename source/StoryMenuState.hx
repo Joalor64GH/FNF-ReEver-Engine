@@ -1,7 +1,6 @@
 package;
 
 import flixel.FlxG;
-import flixel.FlxSprite;
 import flixel.addons.transition.FlxTransitionableState;
 import flixel.graphics.frames.FlxAtlasFrames;
 import flixel.group.FlxGroup.FlxTypedGroup;
@@ -61,12 +60,12 @@ class StoryMenuState extends MusicBeatState
 	var grpWeekText:FlxTypedGroup<MenuItem>;
 	var grpWeekCharacters:FlxTypedGroup<MenuCharacter>;
 
-	var grpLocks:FlxTypedGroup<FlxSprite>;
+	var grpLocks:FlxTypedGroup<FunkinSprite>;
 
 	var difficultySelectors:FlxGroup;
-	var sprDifficulty:FlxSprite;
-	var leftArrow:FlxSprite;
-	var rightArrow:FlxSprite;
+	var sprDifficulty:FunkinSprite;
+	var leftArrow:FunkinSprite;
+	var rightArrow:FunkinSprite;
 
 	override function create()
 	{
@@ -95,17 +94,19 @@ class StoryMenuState extends MusicBeatState
 		rankText.screenCenter(X);
 
 		var ui_tex = Paths.getSparrowAtlas('campaign_menu_UI_assets');
-		var yellowBG:FlxSprite = new FlxSprite(0, 56).makeGraphic(FlxG.width, 400, 0xFFF9CF51);
+		var yellowBG:FunkinSprite = new FunkinSprite(0, 56);
+		yellowBG.makeGraphic(FlxG.width, 400, 0xFFF9CF51);
 
 		grpWeekText = new FlxTypedGroup<MenuItem>();
 		add(grpWeekText);
 
-		var blackBarThingie:FlxSprite = new FlxSprite().makeGraphic(FlxG.width, 56, FlxColor.BLACK);
+		var blackBarThingie:FunkinSprite = new FunkinSprite();
+		blackBarThingie.makeGraphic(FlxG.width, 56, FlxColor.BLACK);
 		add(blackBarThingie);
 
 		grpWeekCharacters = new FlxTypedGroup<MenuCharacter>();
 
-		grpLocks = new FlxTypedGroup<FlxSprite>();
+		grpLocks = new FlxTypedGroup<FunkinSprite>();
 		add(grpLocks);
 
 		trace("Line 70");
@@ -118,18 +119,16 @@ class StoryMenuState extends MusicBeatState
 			grpWeekText.add(weekThing);
 
 			weekThing.screenCenter(X);
-			weekThing.antialiasing = true;
 			// weekThing.updateHitbox();
 
 			// Needs an offset thingie
 			if (!weekUnlocked[i])
 			{
-				var lock:FlxSprite = new FlxSprite(weekThing.width + 10 + weekThing.x);
+				var lock:FunkinSprite = new FunkinSprite(weekThing.width + 10 + weekThing.x);
 				lock.frames = ui_tex;
 				lock.animation.addByPrefix('lock', 'lock');
 				lock.animation.play('lock');
 				lock.ID = i;
-				lock.antialiasing = true;
 				grpLocks.add(lock);
 			}
 		}
@@ -140,7 +139,6 @@ class StoryMenuState extends MusicBeatState
 		{
 			var weekCharacterThing:MenuCharacter = new MenuCharacter((FlxG.width * 0.25) * (1 + char) - 150, weekCharacters[curWeek][char]);
 			weekCharacterThing.y += 70;
-			weekCharacterThing.antialiasing = true;
 			switch (weekCharacterThing.character)
 			{
 				case 'dad':
@@ -169,14 +167,14 @@ class StoryMenuState extends MusicBeatState
 
 		trace("Line 124");
 
-		leftArrow = new FlxSprite(grpWeekText.members[0].x + grpWeekText.members[0].width + 10, grpWeekText.members[0].y + 10);
+		leftArrow = new FunkinSprite(grpWeekText.members[0].x + grpWeekText.members[0].width + 10, grpWeekText.members[0].y + 10);
 		leftArrow.frames = ui_tex;
 		leftArrow.animation.addByPrefix('idle', "arrow left");
 		leftArrow.animation.addByPrefix('press', "arrow push left");
 		leftArrow.animation.play('idle');
 		difficultySelectors.add(leftArrow);
 
-		sprDifficulty = new FlxSprite(leftArrow.x + 130, leftArrow.y);
+		sprDifficulty = new FunkinSprite(leftArrow.x + 130, leftArrow.y);
 		sprDifficulty.frames = ui_tex;
 		sprDifficulty.animation.addByPrefix('easy', 'EASY');
 		sprDifficulty.animation.addByPrefix('normal', 'NORMAL');
@@ -186,7 +184,7 @@ class StoryMenuState extends MusicBeatState
 
 		difficultySelectors.add(sprDifficulty);
 
-		rightArrow = new FlxSprite(sprDifficulty.x + sprDifficulty.width + 50, leftArrow.y);
+		rightArrow = new FunkinSprite(sprDifficulty.x + sprDifficulty.width + 50, leftArrow.y);
 		rightArrow.frames = ui_tex;
 		rightArrow.animation.addByPrefix('idle', 'arrow right');
 		rightArrow.animation.addByPrefix('press', "arrow push right", 24, false);
@@ -228,7 +226,7 @@ class StoryMenuState extends MusicBeatState
 
 		difficultySelectors.visible = weekUnlocked[curWeek];
 
-		grpLocks.forEach(function(lock:FlxSprite)
+		grpLocks.forEach(function(lock:FunkinSprite)
 		{
 			lock.y = grpWeekText.members[lock.ID].y;
 		});

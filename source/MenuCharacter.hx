@@ -1,9 +1,8 @@
 package;
 
-import flixel.FlxSprite;
 import flixel.graphics.frames.FlxAtlasFrames;
 
-class MenuCharacter extends FlxSprite
+class MenuCharacter extends FunkinSprite
 {
 	public var character:String;
 
