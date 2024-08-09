@@ -1,5 +1,6 @@
 package;
 
+import flixel.FlxSprite;
 import flixel.FlxG;
 import flixel.graphics.frames.FlxAtlasFrames;
 import flixel.group.FlxSpriteGroup;
@@ -231,7 +232,7 @@ class Alphabet extends FlxSpriteGroup
 	}
 }
 
-class AlphaCharacter extends FunkinSprite
+class AlphaCharacter extends FlxSprite
 {
 	public static var alphabet:String = "abcdefghijklmnopqrstuvwxyz";
 
@@ -246,6 +247,7 @@ class AlphaCharacter extends FunkinSprite
 		super(x, y);
 		var tex = Paths.getSparrowAtlas('alphabet');
 		frames = tex;
+		antialiasing = FlxG.save.data.antialiasing;
 	}
 
 	public function createBold(letter:String)

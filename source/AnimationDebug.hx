@@ -32,11 +32,27 @@ class AnimationDebug extends FlxState
 
 	override function create()
 	{
-		FlxG.sound.music.stop();
+		var bg:FunkinSprite = new FunkinSprite(-600, -200);
+		bg.loadGraphic(Paths.image('stageback'));
+		bg.scrollFactor.set(0.9, 0.9);
+		bg.active = false;
+		add(bg);
+		var stageFront:FunkinSprite = new FunkinSprite(-650, 600);
+		stageFront.loadGraphic(Paths.image('stagefront'));
+		stageFront.setGraphicSize(Std.int(stageFront.width * 1.1));
+		stageFront.updateHitbox();
+		stageFront.scrollFactor.set(0.9, 0.9);
+		stageFront.active = false;
+		add(stageFront);
+		var stageCurtains:FunkinSprite = new FunkinSprite(-500, -300);
+		stageCurtains.loadGraphic(Paths.image('stagecurtains'));
+		stageCurtains.setGraphicSize(Std.int(stageCurtains.width * 0.9));
+		stageCurtains.updateHitbox();
+		stageCurtains.scrollFactor.set(1.3, 1.3);
+		stageCurtains.active = false;
+		add(stageCurtains);
 
-		var gridBG:FunkinSprite = FlxGridOverlay.create(10, 10);
-		gridBG.scrollFactor.set(0.5, 0.5);
-		add(gridBG);
+		FlxG.sound.music.stop();
 
 		if (daAnim == 'bf')
 			isDad = false;

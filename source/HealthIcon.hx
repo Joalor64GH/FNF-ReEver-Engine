@@ -1,12 +1,12 @@
 package;
 
-import openfl.utils.Assets as OpenFlAssets;
+import flixel.FlxSprite;
 
 using StringTools;
 
 class HealthIcon extends FunkinSprite
 {
-	public var sprTracker:FunkinSprite;
+	public var sprTracker:FlxSprite;
 	private var isOldIcon:Bool = false;
 	private var isPlayer:Bool = false;
 	private var char:String = '';
@@ -45,6 +45,7 @@ class HealthIcon extends FunkinSprite
 			if (char.endsWith("-pixel")) {
 				iconOffsets[0] = width - 32;
 				iconOffsets[1] = width - 32;
+				scale.set(6, 6);
 			} else {
 				iconOffsets[0] = (width - 150) / 2;
 				iconOffsets[1] = (width - 150) / 2;

@@ -1,5 +1,6 @@
 package;
 
+import flixel.FlxSprite;
 import Conductor.BPMChangeEvent;
 import Section.SwagSection;
 import Song.SwagSong;
@@ -18,7 +19,7 @@ import flixel.group.FlxGroup.FlxTypedGroup;
 import flixel.group.FlxGroup;
 import flixel.math.FlxMath;
 import flixel.math.FlxPoint;
-import flixel.system.FlxSound;
+import flixel.sound.FlxSound;
 import flixel.text.FlxText;
 import flixel.ui.FlxButton;
 import flixel.ui.FlxSpriteButton;
@@ -63,7 +64,7 @@ class ChartingState extends MusicBeatState
 	var curRenderedNotes:FlxTypedGroup<Note>;
 	var curRenderedSustains:FlxTypedGroup<FunkinSprite>;
 
-	var gridBG:FunkinSprite;
+	var gridBG:FlxSprite;
 
 	var _song:SwagSong;
 
@@ -101,7 +102,7 @@ class ChartingState extends MusicBeatState
 		leftIcon.setPosition(0, -100);
 		rightIcon.setPosition(gridBG.width / 2, -100);
 
-		var gridBlackLine:FunkinSprite = new FunkinSprite(gridBG.x + gridBG.width / 2)
+		var gridBlackLine:FunkinSprite = new FunkinSprite(gridBG.x + gridBG.width / 2);
 		gridBlackLine.makeGraphic(2, Std.int(gridBG.height), FlxColor.BLACK);
 		add(gridBlackLine);
 
@@ -143,11 +144,11 @@ class ChartingState extends MusicBeatState
 		bpmTxt.scrollFactor.set();
 		add(bpmTxt);
 
-		strumLine = new FunkinSprite(0, 50)
+		strumLine = new FunkinSprite(0, 50);
 		strumLine.makeGraphic(Std.int(FlxG.width / 2), 4);
 		add(strumLine);
 
-		dummyArrow = new FunkinSprite()
+		dummyArrow = new FunkinSprite();
 		dummyArrow.makeGraphic(GRID_SIZE, GRID_SIZE);
 		add(dummyArrow);
 

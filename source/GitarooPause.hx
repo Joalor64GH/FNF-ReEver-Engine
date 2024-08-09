@@ -1,7 +1,6 @@
 package;
 
 import flixel.FlxG;
-import flixel.FunkinSprite;
 import flixel.graphics.frames.FlxAtlasFrames;
 
 class GitarooPause extends MusicBeatState
@@ -21,7 +20,8 @@ class GitarooPause extends MusicBeatState
 		if (FlxG.sound.music != null)
 			FlxG.sound.music.stop();
 
-		var bg:FunkinSprite = new FunkinSprite().loadGraphic(Paths.image('pauseAlt/pauseBG'));
+		var bg:FunkinSprite = new FunkinSprite();
+		bg.loadGraphic(Paths.image('pauseAlt/pauseBG'));
 		add(bg);
 
 		var bf:FunkinSprite = new FunkinSprite(0, 30);
