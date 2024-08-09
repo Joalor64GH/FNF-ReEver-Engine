@@ -4,6 +4,7 @@
 - Rework old Options Menu []
 - Rework Discord RPC []
 - Rework old Outdated State []
+- Rework old input []
 - Make own Options Data []
 - Make when paused still be using options []
 - Make chart editor more easier []
