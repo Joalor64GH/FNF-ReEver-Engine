@@ -4,6 +4,9 @@ import flixel.FlxSprite;
 
 using StringTools;
 
+/**
+ * Code from FNF Psych Engine
+ */
 class HealthIcon extends FunkinSprite
 {
 	public var sprTracker:FlxSprite;
@@ -42,14 +45,8 @@ class HealthIcon extends FunkinSprite
 
 			loadGraphic(file); //Load stupidly first for getting the file size
 			loadGraphic(file, true, Math.floor(width / 2), Math.floor(height)); //Then load it fr
-			if (char.endsWith("-pixel")) {
-				iconOffsets[0] = width - 32;
-				iconOffsets[1] = width - 32;
-				scale.set(6, 6);
-			} else {
-				iconOffsets[0] = (width - 150) / 2;
-				iconOffsets[1] = (width - 150) / 2;
-			}
+			iconOffsets[0] = (width - 150) / 2;
+			iconOffsets[1] = (width - 150) / 2;
 			updateHitbox();
 
 			animation.add(char, [0, 1], 0, false, isPlayer);

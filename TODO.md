@@ -12,3 +12,4 @@
 - Make animation debug more easier []
 - Make stage can now be edited by using script []
 - Add crash handle [x]
+- Fix animation of Daddy Dearest [x]

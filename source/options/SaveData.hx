@@ -8,7 +8,8 @@ class SaveData {
         "ghost tap" => true,
         "downscroll" => false,
 		"antialiasing" => true,
-		"cacheEveryPNG" => false
+		"cacheEveryPNG" => false,
+		"framerate" => 60
 	];
 
     public static function saveSettings() {

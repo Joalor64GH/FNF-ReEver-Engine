@@ -127,14 +127,15 @@ class OptionsMenu extends MusicBeatState
 			}
 			if (inSetting) {
 				// this one can only using for change bool, int and string are working on
+				SaveData.saveSettings();
 				SaveData.settings.set(controlsStrings[curSelected], !SaveData.settings.get(controlsStrings[curSelected]));
 				changeCheckbox(controlsStrings[curSelected]);
+				SaveData.loadSettings(); // reload
 			}
 		}
 
 		if (controls.BACK)
 		{
-			SaveData.saveSettings();
 			if (inSetting) {
 				inSetting = false;
 				controlsStrings = ogStrings;
