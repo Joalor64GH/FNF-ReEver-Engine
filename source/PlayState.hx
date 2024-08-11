@@ -69,7 +69,7 @@ class PlayState extends MusicBeatState
 
 	private var strumLineNotes:FlxTypedGroup<FunkinSprite>;
 	private var playerStrums:FlxTypedGroup<FunkinSprite>;
-	var grpNoteSplashes:FlxTypedGroup<NoteSplash>;
+	// var grpNoteSplashes:FlxTypedGroup<NoteSplash>;
 
 	private var camZooming:Bool = false;
 	private var curSong:String = "";
@@ -643,13 +643,13 @@ class PlayState extends MusicBeatState
 
 		// startCountdown();
 
-		grpNoteSplashes = new FlxTypedGroup<NoteSplash>();
+		/*grpNoteSplashes = new FlxTypedGroup<NoteSplash>();
 
 		var noteSplash:NoteSplash = new NoteSplash(100, 100, 0);
 		grpNoteSplashes.add(noteSplash);
 		noteSplash.alpha = 0.1;
 
-		add(grpNoteSplashes);
+		add(grpNoteSplashes);*/
 
 		generateSong(SONG.song);
 
@@ -702,7 +702,7 @@ class PlayState extends MusicBeatState
 		iconP2.y = healthBar.y - (iconP2.height / 2);
 		add(iconP2);
 
-		grpNoteSplashes.cameras = [camHUD];
+		// grpNoteSplashes.cameras = [camHUD];
 		strumLineNotes.cameras = [camHUD];
 		notes.cameras = [camHUD];
 		healthBar.cameras = [camHUD];
@@ -1719,10 +1719,10 @@ class PlayState extends MusicBeatState
 
 		if (isSick)
 		{
-			var noteSplash:NoteSplash = grpNoteSplashes.recycle(NoteSplash);
+			/*var noteSplash:NoteSplash = grpNoteSplashes.recycle(NoteSplash);
 			noteSplash.setupNoteSplash(daNote.x, daNote.y, daNote.noteData);
 			// new NoteSplash(daNote.x, daNote.y, daNote.noteData);
-			grpNoteSplashes.add(noteSplash);
+			grpNoteSplashes.add(noteSplash);*/
 		}
 
 		var ratingPath:String = daRating;
