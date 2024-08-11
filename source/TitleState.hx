@@ -37,7 +37,8 @@ class TitleState extends MusicBeatState
 		// DEBUG BULLSHIT
 
 		super.create();
-
+		
+		options.SaveData.loadSettings();
 		FlxG.save.bind('reEver', 'huy1234th');
 
 		Highscore.load();
