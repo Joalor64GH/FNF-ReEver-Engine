@@ -35,4 +35,8 @@ class SaveData {
 		}
 		settingsSave.destroy();
 	}
+
+	public static function get(string:String) {
+		return SaveData.settings.get(string);
+	}
 }

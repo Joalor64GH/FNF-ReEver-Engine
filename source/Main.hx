@@ -82,7 +82,6 @@ class Main extends Sprite
 		addChild(new Counter(10, 3, 0xFFFFFF));
 
 		Lib.current.loaderInfo.uncaughtErrorEvents.addEventListener(UncaughtErrorEvent.UNCAUGHT_ERROR, (e:UncaughtErrorEvent) -> {
-			#if desktop
 			var errMsg:String = "";
 			var path:String;
 			var callStack:Array<StackItem> = CallStack.exceptionStack(true);
@@ -123,7 +122,6 @@ class Main extends Sprite
 
 			Application.current.window.alert(errMsg, "Error!");
 			Sys.exit(1);
-			#end
 		});
 	}
 }
