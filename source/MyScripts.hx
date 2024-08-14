@@ -12,7 +12,7 @@ class MyScripts {
     public static var interp:Interp = new Interp();
     public static var parser:Parser = new Parser();
 
-    public static var exp:StringMap<Dynamic>;
+    public static var exp:StringMap<Dynamic> = new StringMap<Dynamic>();
 
     public function new(contents:Expr, ?extraParams:StringMap<Dynamic>) {
         for (i in exp.keys()) {

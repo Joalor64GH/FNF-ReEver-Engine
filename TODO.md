@@ -6,6 +6,7 @@
 - [X] Rework old Outdated State
 - [X] Rework old input
 - [ ] Rework old UI
+- [ ] Rework old `Controls.hx` with support changing input
 - [X] Make own Options Data
 - [ ] Make when paused still be using options
 - [ ] Make chart editor more easier
