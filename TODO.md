@@ -3,13 +3,17 @@
 - [X] Remove old Discord RPC, unuse class
 - [X] Rework old Options Menu
 - [ ] Rework Discord RPC
-- [ ] Rework old Outdated State
-- [ ] Rework old input
+- [X] Rework old Outdated State
+- [X] Rework old input
 - [ ] Rework old UI
-- [ ] Make own Options Data
+- [X] Make own Options Data
 - [ ] Make when paused still be using options
 - [ ] Make chart editor more easier
 - [ ] Make animation debug more easier
 - [ ] Make stage can now be edited by using script
+- [ ] Make Options when using as Int, Float, String will not able to see a check box current selected
 - [X] Add crash handle
 - [X] Fix animation of Daddy Dearest
+- [ ] Fix crash handle not showing
+- [ ] Fix when playing a song always crash
+- [ ] Fix Options is not actually remove checkbox

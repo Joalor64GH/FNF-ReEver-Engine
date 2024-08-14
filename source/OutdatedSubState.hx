@@ -18,7 +18,10 @@ class OutdatedSubState extends MusicBeatState
 		add(bg);
 		var ver = "v" + Application.current.meta.get('version');
 		var txt:FlxText = new FlxText(0, 0, FlxG.width,
-			"ReEver Engine have new update!",
+			"Hey!, your ReEver Engine is outdated
+			\nWe updated to a new current version
+			\n\nPress ACCEPT to move to the release page
+			\nPress BACK to continue playing!",
 			32);
 		txt.setFormat("VCR OSD Mono", 32, FlxColor.WHITE, CENTER);
 		txt.screenCenter();

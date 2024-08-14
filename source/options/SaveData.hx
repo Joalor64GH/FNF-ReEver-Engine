@@ -8,7 +8,8 @@ class SaveData {
         "ghost tap" => true,
         "downscroll" => false,
 		"antialiasing" => true,
-		"cacheEveryPNG" => false,
+		"cache every png" => false,
+		"camera zoom" => true,
 		"framerate" => 60
 	];
 
@@ -33,10 +34,14 @@ class SaveData {
 				}
 			}
 		}
+
+		Framerate.change(get("framerate"));
 		settingsSave.destroy();
 	}
 
-	public static function get(string:String) {
+	public static function get(string:String)
 		return SaveData.settings.get(string);
-	}
+	
+	public static function set(string:String, newValue:Dynamic)
+		return SaveData.settings.set(string, newValue);
 }
