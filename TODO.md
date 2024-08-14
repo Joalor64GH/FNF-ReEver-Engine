@@ -1,15 +1,15 @@
 # TODO For v0.1.0
-- Make source code cleaner []
-- Remove old Discord RPC, unuse class [x]
-- Rework old Options Menu [x]
-- Rework Discord RPC []
-- Rework old Outdated State []
-- Rework old input []
-- Rework old UI []
-- Make own Options Data []
-- Make when paused still be using options []
-- Make chart editor more easier []
-- Make animation debug more easier []
-- Make stage can now be edited by using script []
-- Add crash handle [x]
-- Fix animation of Daddy Dearest [x]
+- [ ] Make source code more cleaner
+- [X] Remove old Discord RPC, unuse class
+- [X] Rework old Options Menu
+- [ ] Rework Discord RPC
+- [ ] Rework old Outdated State
+- [ ] Rework old input
+- [ ] Rework old UI
+- [ ] Make own Options Data
+- [ ] Make when paused still be using options
+- [ ] Make chart editor more easier
+- [ ] Make animation debug more easier
+- [ ] Make stage can now be edited by using script
+- [X] Add crash handle
+- [X] Fix animation of Daddy Dearest
