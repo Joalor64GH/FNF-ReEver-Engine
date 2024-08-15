@@ -117,8 +117,12 @@ class PlayState extends MusicBeatState
 
 	var camPos:FlxPoint;
 
+	public static var instance:PlayState = null;
+
 	override public function create()
 	{
+		instance = this;
+
 		if (FlxG.sound.music != null)
 			FlxG.sound.music.stop();
 
@@ -1792,6 +1796,12 @@ class PlayState extends MusicBeatState
 
 	var lightningStrikeBeat:Int = 0;
 	var lightningOffset:Int = 8;
+
+	override function destroy() 
+	{
+		super.destroy();
+		instance = null;
+	}
 
 	override function beatHit()
 	{

@@ -6,17 +6,22 @@ import flixel.group.FlxGroup.FlxTypedGroup;
 
 class StageMe extends FlxTypedGroup<FlxBasic> {
     var exp:StringMap<Dynamic> = new StringMap<Dynamic>();
-    var playState:PlayState;
-
     public function new(stage:String) {
         super();
 
-        exp.set("add", add);
-        exp.set("remove", remove);
+        exp.set("add", function(bsc:FlxBasic) {
+            return PlayState.instance.add(bsc);
+        });
 
-        exp.set("boyfriend", playState.boyfriend);
-        exp.set("gf", playState.gf);
-        exp.set("dad", playState.dad);
+        exp.set("remove", function(bsc:FlxBasic) {
+            return PlayState.instance.remove(bsc);
+        });
+
+        exp.set("boyfriend", PlayState.instance.boyfriend);
+        exp.set("gf", PlayState.instance.gf);
+        exp.set("dad", PlayState.instance.dad);
+
+        exp.set("game", PlayState.instance);
         
         exp.set("BGSprite", BGSprite);
         exp.set("FunkinSprite", FunkinSprite);
